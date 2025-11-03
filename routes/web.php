@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WeddingPackageController;
 
+// Route::middleware('redirect.access')->group(function () {});
 Route::get('/', function () {
     return view('welcome');
 });
