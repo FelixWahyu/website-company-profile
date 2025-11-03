@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WeddingPackageController;
 
@@ -15,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('pages.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware('auth', 'verified')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,9 +36,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // CRUD untuk Wedding Packages
     Route::resource('wedding-packages', WeddingPackageController::class);
 
+    Route::resource('galleries', GalleryController::class)->except(['show', 'edit', 'update']);
+
+    Route::resource('promotions', PromotionController::class)->except('show');
+
     // Testimonials
     Route::get('testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
-    // Tambahkan rute lain untuk approve, reply, delete jika perlu
+    Route::patch('testimonials/{testimonial}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+    Route::delete('testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
     // Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
