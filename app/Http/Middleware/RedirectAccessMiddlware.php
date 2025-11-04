@@ -18,6 +18,8 @@ class RedirectAccessMiddlware
     {
         if (Auth::check() && Auth::user()->role == 'admin') {
             return redirect()->route('admin.dashboard');
+        } elseif (Auth::check() && Auth::user()->role == 'customer') {
+            return redirect()->route('home');
         }
 
         return $next($request);
