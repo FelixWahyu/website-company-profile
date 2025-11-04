@@ -13,13 +13,15 @@ use App\Http\Controllers\Admin\WeddingPackageController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::middleware('redirect.access')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware('auth', 'verified')->name('dashboard');
-});
+// Route::middleware('redirect.access')->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->middleware('auth', 'verified')->name('dashboard');
+// });
 
 Route::middleware('auth')->group(function () {
+    Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -43,6 +45,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Testimonials
     Route::get('testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
     Route::patch('testimonials/{testimonial}/approve', [TestimonialController::class, 'approve'])->name('testimonials.approve');
+    Route::post('/testimonials/{testimonial}/reply', [TestimonialController::class, 'reply'])
+        ->name('testimonials.reply');
     Route::delete('testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
     // Settings

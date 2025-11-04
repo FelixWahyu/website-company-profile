@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class SettingServiceProvider extends ServiceProvider
@@ -21,11 +22,14 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['*'], function ($view) {
+        View::composer('*', function ($view) {
             // Ambil data hanya sekali dan cache untuk performa
-            $settings = cache()->remember('settings', 60 * 60, function () {
+            $settings = Cache::rememberForever('settings', function () {
                 return Setting::pluck('value', 'key')->all();
             });
+            // $settings = \Illuminate\Support\Facades\Cache::remember('settings', 60, function () {
+            //     return Setting::all()->keyBy('key');
+            // });
             $view->with('settings', $settings);
         });
     }

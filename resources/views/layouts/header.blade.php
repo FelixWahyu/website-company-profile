@@ -1,9 +1,12 @@
 <header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="container mx-auto py-1 px-6 flex justify-between items-center">
         <a href="/">
             @if (!empty($settings['site_logo']))
-                <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['site_name'] ?? 'Logo' }}"
-                    class="h-10">
+                <div class="flex gap-4 items-center">
+                    <img src="{{ asset('storage/' . $settings['site_logo']) }}"
+                        alt="{{ $settings['site_name'] ?? 'Logo' }}" class="w-16">
+                    <h3 class="text-lg font-semibold">{{ $settings['site_name'] }}</h3>
+                </div>
             @else
                 <h1 class="text-2xl font-bold text-gray-800">{{ $settings['site_name'] ?? 'Company Profile' }}</h1>
             @endif
@@ -40,7 +43,8 @@
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Edit Profile</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); this.closest('form').submit();"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
                         </form>
                     </div>
