@@ -3,21 +3,24 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopCurtomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\PromoSlideController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WeddingPackageController;
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route::middleware('redirect.access')->group(function () {
 //     Route::get('/dashboard', function () {
 //         return view('dashboard');
 //     })->middleware('auth', 'verified')->name('dashboard');
 // });
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/toko', [ShopCurtomerController::class, 'index'])->name('shop');
 
 Route::middleware('auth')->group(function () {
     Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
@@ -35,12 +38,15 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // CRUD untuk Products
     Route::resource('products', ProductController::class);
 
+    Route::resource('/categories', CategoryController::class)->names('categories');
+
     // CRUD untuk Wedding Packages
     Route::resource('wedding-packages', WeddingPackageController::class);
 
     Route::resource('galleries', GalleryController::class)->except(['show', 'edit', 'update']);
 
     Route::resource('promotions', PromotionController::class)->except('show');
+    Route::resource('/promo-slides', PromoSlideController::class)->names('promo-slides');
 
     // Testimonials
     Route::get('testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');

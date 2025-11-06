@@ -25,7 +25,8 @@
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
             </div>
-            <h3 class="text-center text-xl font-semibold mb-6">Login</h3>
+            <h3 class="text-center text-xl font-semibold mb-6">{{ request()->routeIs('login') ? 'Login' : 'Register' }}
+            </h3>
             {{ $slot }}
         </div>
     </div>

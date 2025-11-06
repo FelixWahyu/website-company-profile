@@ -1,6 +1,6 @@
 @if (!empty($settings['site_logo']))
     <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['site_name'] ?? 'Logo' }}"
-        class="h-16">
+        class="h-36">
 @else
     <svg viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
         <path

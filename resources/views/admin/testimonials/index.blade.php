@@ -58,6 +58,17 @@
                                     @endif
                                 </form>
 
+                                <form action="{{ route('admin.testimonials.destroy', $testimonial) }}" method="POST"
+                                    class="inline-block"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus ulasan ini? Tindakan ini tidak bisa dibatalkan.');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-lg ml-2">
+                                        Hapus
+                                    </button>
+                                </form>
+
                                 <hr class="my-6">
 
                                 @if ($testimonial->replies->isNotEmpty())

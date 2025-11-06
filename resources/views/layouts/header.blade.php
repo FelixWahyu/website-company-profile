@@ -14,7 +14,7 @@
 
         <div class="hidden md:flex items-center space-x-6">
             <a href="/" class="text-gray-600 hover:text-indigo-600">Home</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600">Supermarket</a>
+            <a href="{{ route('shop') }}" class="text-gray-600 hover:text-indigo-600">Shop</a>
             <a href="#" class="text-gray-600 hover:text-indigo-600">Wedding</a>
             <a href="#" class="text-gray-600 hover:text-indigo-600">Galeri</a>
             <a href="#" class="text-gray-600 hover:text-indigo-600">Kontak</a>

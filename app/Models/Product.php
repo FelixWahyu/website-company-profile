@@ -13,5 +13,13 @@ class Product extends Model
         'description',
         'image',
         'view_count',
+        'category_id', // Kolom baru
+        'is_promo',    // Kolom baru
+        'promo_price',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
