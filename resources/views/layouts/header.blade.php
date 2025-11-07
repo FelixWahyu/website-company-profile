@@ -13,16 +13,18 @@
         </a>
 
         <div class="hidden md:flex items-center space-x-6">
-            <a href="/" class="text-gray-600 hover:text-indigo-600">Home</a>
-            <a href="{{ route('shop') }}" class="text-gray-600 hover:text-indigo-600">Shop</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600">Wedding</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600">Galeri</a>
+            <a href="{{ route('home') }}"
+                class="hover:text-indigo-600 {{ request()->routeIs('home') ? 'text-indigo-600' : 'text-gray-600' }}">Home</a>
+            <a href="{{ route('shop') }}"
+                class="hover:text-indigo-600 {{ request()->routeIs('shop') ? 'text-indigo-600' : 'text-gray-600' }}">Toko</a>
+            <a href="{{ route('wedding') }}"
+                class="hover:text-indigo-600 {{ request()->routeIs('wedding') ? 'text-indigo-600' : 'text-gray-600' }}">Wedding</a>
             <a href="#" class="text-gray-600 hover:text-indigo-600">Kontak</a>
         </div>
 
         <div class="hidden md:flex items-center space-x-4">
             @guest
-                <a href="{{ route('login') }}" class="text-gray-600 hover:text-indigo-600">Login</a>
+                <a href="{{ route('login') }}" class="text-gray-600 me-4 hover:text-indigo-600">Login</a>
                 <a href="{{ route('register') }}"
                     class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Register</a>
             @else

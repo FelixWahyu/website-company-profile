@@ -32,10 +32,6 @@
                             Judul
                         </th>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Link
-                        </th>
-                        <th
                             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Status
                         </th>
@@ -57,12 +53,6 @@
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap font-semibold">{{ $slide->title }}</p>
                                 <p class="text-gray-600 whitespace-no-wrap text-xs">{{ $slide->overlay_text }}</p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <a href="{{ $slide->link }}" target="_blank"
-                                    class="text-blue-600 hover:underline text-xs">
-                                    {{ Str::limit($slide->link, 30) }}
-                                </a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
                                 @if ($slide->is_active)

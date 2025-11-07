@@ -19,9 +19,11 @@
         <div
             class="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-6 sm:px-10">
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
-                Selamat Datang di Website Kami
+                Selamat Datang
+                Toko Akur Plastik & Wedding Planner
             </h1>
-            <p class="text-lg mb-2">Solusi Terbaik untuk Kebutuhan Anda</p>
+            <p class="text-lg mb-2">Solusi Lengkap untuk Kehidupan Anda
+                Dari kebutuhan sehari-hari hingga momen spesial Anda, kami siap melayani dengan sepenuh hati.</p>
             <p class="text-lg">Menyediakan produk supermarket berkualitas dan layanan wedding impian Anda dalam satu
                 atap.</p>
         </div>
@@ -30,43 +32,43 @@
         <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-10">
             <template x-for="(slide, index) in slides" :key="index">
                 <button class="w-3 h-3 rounded-full transition-all"
-                    :class="current === index ? 'bg-yellow-500 w-4' : 'bg-white/70 hover:bg-white'"
+                    :class="current === index ? 'bg-blue-500 w-4' : 'bg-white/70 hover:bg-white'"
                     @click="current = index"></button>
             </template>
         </div>
     </section>
 
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Layanan Utama Kami</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
                 <div
-                    class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="{{ asset('images/banner/wedding-planer.jpg') }}" alt="Lorong Supermarket"
+                    class="bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="{{ asset('images/banner/supermarket.jpg') }}" alt="Lorong Supermarket"
                         class="w-full h-64 object-cover">
                     <div class="p-8">
                         <h3 class="font-bold text-2xl text-gray-900 mb-3">Supermarket Harian</h3>
                         <p class="text-gray-600 mb-6">Temukan semua kebutuhan harian Anda, dari bahan makanan segar
                             hingga perlengkapan rumah tangga, dengan kualitas terbaik dan harga terjangkau.</p>
                         <a href="{{ route('shop') }}"
-                            class="inline-block bg-indigo-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors">
+                            class="inline-block bg-gray-400 text-white font-semibold px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors">
                             Lihat Produk
                         </a>
                     </div>
                 </div>
 
                 <div
-                    class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    class="bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                     <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                         alt="Dekorasi Pernikahan" class="w-full h-64 object-cover">
                     <div class="p-8">
                         <h3 class="font-bold text-2xl text-gray-900 mb-3">Wedding Service</h3>
                         <p class="text-gray-600 mb-6">Wujudkan pernikahan impian Anda bersama tim profesional kami.
                             Dari perencanaan hingga dekorasi, kami siap melayani setiap detailnya.</p>
-                        <a href="{{-- route('wedding.index') --}}"
-                            class="inline-block bg-pink-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-600 transition-colors">
+                        <a href="{{ route('wedding') }}"
+                            class="inline-block bg-gray-400 text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-600 transition-colors">
                             Lihat Paket Wedding
                         </a>
                     </div>
@@ -100,13 +102,14 @@
 
     @if (isset($testimonials) && $testimonials->isNotEmpty())
         <section class="py-16 bg-white">
-            <div class="px-6">
+            <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Apa Kata Pelanggan Kami</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
 
                     @foreach ($testimonials as $testimonial)
-                        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
+                        <div
+                            class="bg-white border border-gray-200 p-6 rounded-lg shadow-lg flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center mb-4">
                                     @php
@@ -152,7 +155,6 @@
                                         </div>
                                     @endforeach
                                 @endif
-
                             </div>
                         </div>
                     @endforeach
@@ -162,7 +164,7 @@
         </section>
     @endif
 
-    <section class="py-16 bg-white">
+    <section class="py-8 bg-white">
         <div class="container mx-auto px-6 max-w-3xl">
 
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Bagikan Pendapat Anda</h2>

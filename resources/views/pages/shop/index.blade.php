@@ -15,21 +15,31 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Selamat Datang di Toko Akur</h2>
+                    <h2 class="text-xl text-gray-800 mb-2">Tentang</h2>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Toko Akur Plastik & Beras</h2>
                     <p class="text-gray-600 mb-4 leading-relaxed">
-                        Berdiri sejak [Tahun Berdiri], Toko Akur telah menjadi mitra terpercaya bagi ratusan usaha
-                        kuliner, warung, dan rumah tangga di [Nama Kota Anda]. Kami bukan sekadar toko; kami adalah
+                        Toko Akur telah menjadi mitra terpercaya bagi ratusan usaha
+                        kuliner, warung, dan rumah tangga di Purbalingga. Kami bukan sekadar toko; kami adalah
                         pusat grosir yang berkomitmen menyediakan produk berkualitas.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Solusi Lengkap untuk Kehidupan Anda dari kebutuhan sehari-hari hingga momen spesial Anda, kami
+                        siap melayani dengan sepenuh hati. Temukan produk kami yang berkualitas tinggi dengan harga
+                        terjangkau untuk kebutuhan keluarga Anda. Kami berkomitmen menyediakan produk berkualitas setiap
+                        hari. Kami bekerja sama dengan supplier lokal terbaik untuk memastikan setiap produk yang kami
+                        tawarkan memenuhi standar kualitas. Dengan lokasi strategis dan jam operasional yang fleksibel,
+                        kami siap melayani kebutuhan belanja keluarga Anda dengan pelayanan ramah dan harga yang
+                        terjangkau.
                     </p>
                     <p class="text-gray-600 mb-6 leading-relaxed">
                         Mulai dari beragam jenis beras pilihan hingga ribuan item plastik dan bahan kemasan, misi kami
                         adalah menyediakan semua kebutuhan Anda di satu tempat dengan harga yang jujur dan pelayanan
                         yang ramah.
                     </p>
-                    <a href="#lokasi" {{-- Ganti dengan link Google Maps --}}
+                    {{-- <a href="#lokasi"
                         class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                         Kunjungi Toko Kami
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="rounded-lg shadow-xl overflow-hidden">
 
@@ -49,11 +59,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <svg class="w-12 h-12 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-1.414 1.414a1 1 0 01-.707.293H10.414a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 007.586 13H5">
-                        </path>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-12 mx-auto mb-4 text-blue-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
                     </svg>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Plastik & Lainnya</h3>
                     <p class="text-gray-600 text-sm">Menyediakan berbagai jenis plastik berkualitas untuk kebutuhan
@@ -61,9 +70,11 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <svg class="w-12 h-12 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-12 mx-auto mb-4 text-blue-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                     </svg>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Produk Diary</h3>
                     <p class="text-gray-600 text-sm">Menyediakan berbagai pilihan produk unggulan dengan material
@@ -84,7 +95,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <svg class="w-12 h-12 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor"
+                    <svg class="w-12 h-12 text-blue-500 mx-auto mb-4" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
@@ -116,7 +127,7 @@
                                     <div class="relative">
                                         @if ($slide->overlay_text)
                                             <span
-                                                class="absolute top-4 right-4 bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-md z-10">
+                                                class="absolute top-4 right-4 bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-md z-10">
                                                 {{ $slide->overlay_text }}
                                             </span>
                                         @endif
@@ -127,7 +138,7 @@
                                         <h3 class="font-bold text-xl text-gray-800 mb-2">{{ $slide->title }}</h3>
                                         <p class="text-gray-600 text-sm mb-6 flex-grow">{{ $slide->description }}</p>
                                         <a href="{{ $slide->link }}" target="_blank"
-                                            class="inline-block bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-green-600 transition-colors">
+                                            class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-blue-600 transition-colors">
                                             {{ $slide->button_text }}
                                         </a>
                                     </div>
@@ -139,8 +150,20 @@
 
                     <div class="swiper-pagination"></div>
 
-                    <div class="swiper-button-prev text-green-600"></div>
-                    <div class="swiper-button-next text-green-600"></div>
+                    <div class="swiper-button-prev text-gray-800 bg-white/50 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next text-gray-800 p-4 bg-white/50 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </section>

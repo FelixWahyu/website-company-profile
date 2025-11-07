@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\PromoSlideController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WeddingPackageController;
+use App\Http\Controllers\TestimonialCustomerController;
 
 // Route::middleware('redirect.access')->group(function () {
 //     Route::get('/dashboard', function () {
@@ -21,6 +22,7 @@ use App\Http\Controllers\Admin\WeddingPackageController;
 // });
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/toko', [ShopCurtomerController::class, 'index'])->name('shop');
+Route::get('/wedding', [TestimonialCustomerController::class, 'index'])->name('wedding');
 
 Route::middleware('auth')->group(function () {
     Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');

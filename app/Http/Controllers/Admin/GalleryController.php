@@ -40,6 +40,15 @@ class GalleryController extends Controller
             ->with('success', 'Gambar berhasil ditambahkan ke galeri.');
     }
 
+    public function update(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|in:supermarket,wedding',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    }
+
     public function destroy(Gallery $gallery)
     {
         Storage::disk('public')->delete($gallery->image_path);
