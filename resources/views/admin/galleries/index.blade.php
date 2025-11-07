@@ -22,19 +22,32 @@
                     <img class="h-auto max-w-full rounded-lg" src="{{ asset('storage/' . $gallery->image_path) }}"
                         alt="{{ $gallery->title }}">
                     <div
-                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+
+                        <!-- Info Judul & Kategori -->
                         <div>
                             <p class="text-white text-sm font-bold">{{ $gallery->title }}</p>
                             <span
                                 class="text-xs font-semibold uppercase px-2 py-1 bg-indigo-500 text-white rounded-full">{{ $gallery->category }}</span>
                         </div>
-                        <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST"
-                            onsubmit="return confirm('Yakin ingin hapus gambar ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="w-full px-2 py-1 text-xs text-white bg-red-600 rounded hover:bg-red-700">Hapus</button>
-                        </form>
+
+                        <!-- [UPDATE] Tombol Aksi (Edit & Hapus) -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <!-- Tombol Edit -->
+                            <a href="{{ route('admin.galleries.edit', $gallery) }}"
+                                class="w-full px-2 py-1 text-xs text-white text-center bg-blue-600 rounded hover:bg-blue-700">
+                                Edit
+                            </a>
+                            <!-- Tombol Hapus -->
+                            <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST"
+                                onsubmit="return confirm('Yakin ingin hapus gambar ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="w-full px-2 py-1 text-xs text-white bg-red-600 rounded hover:bg-red-700">Hapus</button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             @empty

@@ -1,10 +1,9 @@
 <x-admin-layout>
-    <x-slot name="title">
-        Edit Slide Promo: {{ $promoSlide->title }}
+    <x-slot name="header">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Edit Slide Promo {{ $promoSlide->title }}</h2>
     </x-slot>
 
     <div class="container mx-auto px-6 py-8">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Edit Slide Promo</h2>
 
         <div class="bg-white shadow-md rounded-lg p-8">
             <form action="{{ route('admin.promo-slides.update', $promoSlide) }}" method="POST"

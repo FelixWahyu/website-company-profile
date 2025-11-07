@@ -18,6 +18,15 @@ class HomeController extends Controller
             ->take(3) // Ambil 3 terbaru
             ->get();
 
-        return view('pages.home', compact('promotions', 'testimonials'));
+        $query = Testimonial::where('is_approved', true);
+        $totalReviews = $query->count();
+        $averageRating = $query->avg('rating');
+
+        return view('pages.home', compact(
+            'promotions',
+            'testimonials',
+            'totalReviews',
+            'averageRating'
+        ));
     }
 }

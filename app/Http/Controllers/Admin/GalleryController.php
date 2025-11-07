@@ -40,13 +40,38 @@ class GalleryController extends Controller
             ->with('success', 'Gambar berhasil ditambahkan ke galeri.');
     }
 
-    public function update(Request $request)
+    public function edit(Gallery $gallery)
     {
-        $request->validate([
+        return view('admin.galleries.edit', compact('gallery'));
+    }
+
+    public function update(Request $request, Gallery $gallery)
+    {
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|in:supermarket,wedding',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
+
+        $data = [
+            'title' => $validated['title'],
+            'category' => $validated['category'],
+        ];
+
+        // Cek jika ada file gambar baru
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama
+            if ($gallery->image_path) {
+                Storage::disk('public')->delete($gallery->image_path);
+            }
+            // Simpan gambar baru
+            $data['image_path'] = $request->file('image')->store('galleries', 'public');
+        }
+
+        $gallery->update($data);
+
+        return redirect()->route('admin.galleries.index')
+            ->with('success', 'Galeri berhasil diperbarui.');
     }
 
     public function destroy(Gallery $gallery)

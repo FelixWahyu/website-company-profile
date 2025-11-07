@@ -1,10 +1,9 @@
-<footer class="bg-gray-900 text-gray-300"> {{-- Warna lebih gelap --}}
+<footer class="bg-gray-900 text-gray-300">
     <div class="container mx-auto px-6 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
             <div>
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 mb-4">
-                    {{-- Jika Anda memiliki logo dari settings, tampilkan di sini --}}
                     @if (!empty($settings['site_logo']))
                         <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="Logo" class="h-10 w-10">
                     @endif
@@ -19,9 +18,11 @@
                 <h3 class="text-lg font-semibold text-white mb-4">Layanan Kami</h3>
                 <ul class="space-y-3">
                     <li><a href="{{ route('home') }}" class="hover:text-white hover:underline">Home</a></li>
-                    <li><a href="{{ route('shop') }}" class="hover:text-white hover:underline">Toko</a></li>
-                    <li><a href="#" class="hover:text-white hover:underline">Wedding</a></li>
-                    <li><a href="#" class="hover:text-white hover:underline">Kontak</a></li>
+                    <li><a href="{{ route('shop') }}" class="hover:text-white hover:underline">Toko Akur Plastik</a>
+                    </li>
+                    <li><a href="{{ route('wedding') }}" class="hover:text-white hover:underline">Wedding Planner</a>
+                    </li>
+                    <li><a href="{{ route('contact') }}" class="hover:text-white hover:underline">Kontak</a></li>
                 </ul>
             </div>
 
@@ -29,7 +30,6 @@
                 <h3 class="text-lg font-semibold text-white mb-4">Hubungi Kami</h3>
                 <ul class="space-y-4 text-sm">
                     <li class="flex items-start">
-                        {{-- Ikon Lokasi --}}
                         <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -37,31 +37,29 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                         </svg>
-                        {{-- GANTI DENGAN ALAMAT ANDA --}}
-                        <span class="text-gray-400">Jl. Kopral Kamsi, Dusun 4, Bobotsari, Kec. Bobotsari, Kabupaten
-                            Purbalingga, Jawa Tengah 53353.</span>
+                        <span class="text-gray-400">{{ $settings['contact_address'] }}</span>
                     </li>
                     <li class="flex items-center">
-                        {{-- Ikon Telepon --}}
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-5 text-blue-400 mr-3 flex-shrink-0">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.081l-2.003-.667a1.125 1.125 0 00-1.21.49l-1.028.96c-.145.136-.33.203-.518.203h-.379a.723.723 0 01-.716-.626l-.16-1.001c-.131-.823-.828-1.47-1.681-1.47h-.169c-.853 0-1.55.646-1.681 1.47l-.16 1.001c-.02.123-.08.24-.15.343l-.799.8c-.12.12-.28.187-.45.187h-.349a.69.69 0 01-.683-.6C6.736 15.155 6.276 15 5.84 15h-.348a.69.69 0 01-.683-.6v-.349c0-.436-.36-.796-.796-.796H3.75a2.25 2.25 0 01-2.25-2.25V6.75z" />
+                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                         </svg>
-                        {{-- GANTI DENGAN TELEPON ANDA --}}
-                        <div class="flex flex-col">
-                            <a href="#" class="hover:text-white text-gray-400">+62 877 4994 8627</a>
-                            <a href="#" class="hover:text-white text-gray-400">+62 811 2604 875</a>
+                        <div class="flex flex-col gap-1">
+                            <a href="https://wa.me/6287749948627" target="_blank"
+                                class="hover:text-white text-gray-400">+6287749948627 (Akur Plastik Mart)</a>
+                            <a href="https://wa.me/{{ $settings['contact_whatsapp'] }}" target="_blank"
+                                class="hover:text-white text-gray-400">
+                                +{{ $settings['contact_whatsapp'] }} (Wedding Planner)
+                            </a>
                         </div>
                     </li>
                     <li class="flex items-center">
-                        {{-- Ikon Email --}}
                         <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
-                        {{-- GANTI DENGAN EMAIL ANDA --}}
                         <a href="mailto:info@tokokaur.com" class="hover:text-white text-gray-400">info@tokokaur.com</a>
                     </li>
                 </ul>

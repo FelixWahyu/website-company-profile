@@ -19,7 +19,8 @@
                 class="hover:text-indigo-600 {{ request()->routeIs('shop') ? 'text-indigo-600' : 'text-gray-600' }}">Toko</a>
             <a href="{{ route('wedding') }}"
                 class="hover:text-indigo-600 {{ request()->routeIs('wedding') ? 'text-indigo-600' : 'text-gray-600' }}">Wedding</a>
-            <a href="#" class="text-gray-600 hover:text-indigo-600">Kontak</a>
+            <a href="{{ route('contact') }}"
+                class="hover:text-indigo-600 {{ request()->routeIs('contact') ? 'text-indigo-600' : 'text-gray-600' }}">Kontak</a>
         </div>
 
         <div class="hidden md:flex items-center space-x-4">

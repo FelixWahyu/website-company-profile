@@ -1,9 +1,12 @@
 <x-admin-layout>
-    <x-slot name="header">Daftar Paket Wedding</x-slot>
-    <div class="p-6 bg-white border-b border-gray-200">
-        <div class="flex justify-end mb-4">
+    <x-slot name="header">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Manajemen Paket</h2>
+    </x-slot>
+    <div class="p-2 bg-white">
+        <div class="flex justify-start mb-4">
             <a href="{{ route('admin.wedding-packages.create') }}"
-                class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Tambah Paket</a>
+                class="px-4 py-2 text-white bg-blue-600 rounded-lg font-bold shadow-md hover:bg-blue-700">+ Tambah
+                Paket</a>
         </div>
         @if (session('success'))
             <div class="px-4 py-2 mb-4 text-sm text-green-700 bg-green-100 border border-green-400 rounded"
@@ -11,15 +14,18 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="overflow-x-auto">
-            <table class="min-w-full bg-white">
-                <thead class="bg-gray-50">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto">
+            <table class="min-w-full leading-normal">
+                <thead class="bg-gray-100">
                     <tr>
-                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Nama
+                        <th class="px-6 py-3 text-xs font-seminbold tracking-wider text-left text-gray-600 uppercase">
+                            Nama
                             Paket</th>
-                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Harga
+                        <th class="px-6 py-3 text-xs font-seminbold tracking-wider text-left text-gray-600 uppercase">
+                            Harga
                         </th>
-                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Aksi
+                        <th class="px-6 py-3 text-xs font-seminbold tracking-wider text-left text-gray-600 uppercase">
+                            Aksi
                         </th>
                     </tr>
                 </thead>

@@ -123,7 +123,7 @@
                         @foreach ($promoSlides as $slide)
                             <div class="swiper-slide">
                                 <div
-                                    class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full border border-gray-100">
+                                    class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full border border-gray-200">
                                     <div class="relative">
                                         @if ($slide->overlay_text)
                                             <span
@@ -150,19 +150,9 @@
 
                     <div class="swiper-pagination"></div>
 
-                    <div class="swiper-button-prev text-gray-800 bg-white/50 p-4 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                        </svg>
+                    <div class="swiper-button-prev text-gray-800 bg-gray-100/75 p-8 rounded-full">
                     </div>
-                    <div class="swiper-button-next text-gray-800 p-4 bg-white/50 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                        </svg>
+                    <div class="swiper-button-next text-gray-800 p-8 bg-gray-100/75 rounded-full">
                     </div>
                 </div>
             </div>

@@ -1,10 +1,9 @@
 <x-admin-layout>
-    <x-slot name="title">
-        Manajemen Slide Promo
+    <x-slot name="header">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Manajemen Slide Promo</h2>
     </x-slot>
 
-    <div class="container mx-auto px-6 py-8">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Manajemen Slide Promo</h2>
+    <div class="container mx-auto px-6 mb-4">
 
         <div class="mb-6">
             <a href="{{ route('admin.promo-slides.create') }}"
