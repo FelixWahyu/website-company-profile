@@ -13,7 +13,7 @@
                 <div>
                     <label for="site_logo" class="block text-sm font-medium text-gray-700">Logo Website</label>
                     <input type="file" name="site_logo" id="site_logo"
-                        class="block w-full mt-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                        class="block w-full border border-gray-500 rounded-lg p-1 mt-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
                     <p class="mt-1 text-xs text-gray-500">Kosongkan jika tidak ingin mengubah logo.</p>
                     @error('site_logo')
                         <span class="text-sm text-red-500">{{ $message }}</span>
@@ -23,7 +23,7 @@
                         <div class="mt-4">
                             <p class="text-sm font-medium text-gray-700">Logo Saat Ini:</p>
                             <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="Logo"
-                                class="h-16 mt-2 rounded-md bg-gray-100 p-2">
+                                class="h-16 mt-2 rounded-md shadow-md bg-gray-100 p-2">
                         </div>
                     @endif
                 </div>
@@ -31,40 +31,41 @@
                     <label for="site_name" class="block text-sm font-medium text-gray-700">Nama Website</label>
                     <input type="text" name="site_name" id="site_name"
                         value="{{ old('site_name', $settings['site_name'] ?? '') }}"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">
                 </div>
                 <div>
                     <label for="contact_whatsapp" class="block text-sm font-medium text-gray-700">Nomor WhatsApp</label>
                     <input type="text" name="contact_whatsapp" id="contact_whatsapp"
                         value="{{ old('contact_whatsapp', $settings['contact_whatsapp'] ?? '') }}"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">
                 </div>
                 <div>
                     <label for="contact_address" class="block text-sm font-medium text-gray-700">Alamat</label>
                     <textarea name="contact_address" id="contact_address" rows="3"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('contact_address', $settings['contact_address'] ?? '') }}</textarea>
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">{{ old('contact_address', $settings['contact_address'] ?? '') }}</textarea>
                 </div>
                 <div>
                     <label for="social_instagram" class="block text-sm font-medium text-gray-700">Link Instagram</label>
                     <input type="url" name="social_instagram" id="social_instagram"
                         value="{{ old('social_instagram', $settings['social_instagram'] ?? '') }}"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">
                 </div>
                 <div>
                     <label for="social_tiktok" class="block text-sm font-medium text-gray-700">Link TikTok</label>
                     <input type="url" name="social_tiktok" id="social_tiktok"
                         value="{{ old('social_tiktok', $settings['social_tiktok'] ?? '') }}"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">
                 </div>
                 <div>
                     <label for="social_facebook" class="block text-sm font-medium text-gray-700">Link Facebook</label>
                     <input type="url" name="social_facebook" id="social_facebook"
                         value="{{ old('social_facebook', $settings['social_facebook'] ?? '') }}"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                        class="block w-full mt-1 border-gray-500 rounded-lg shadow-md">
                 </div>
             </div>
             <div class="mt-6">
-                <button type="submit" class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Simpan
+                <button type="submit"
+                    class="px-4 py-2 text-white bg-blue-600 rounded-md shadow-md hover:bg-blue-700">Simpan
                     Pengaturan</button>
             </div>
         </form>

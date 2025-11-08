@@ -1,13 +1,10 @@
 <x-admin-layout>
-    {{-- Judul Halaman --}}
-    <x-slot name="title">
-        Manajemen User
+    <x-slot name="header">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Manajemen User</h2>
     </x-slot>
 
-    <div class="container mx-auto px-6 py-8">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Manajemen User</h2>
+    <div class="container mx-auto px-6 py-2">
 
-        <!-- Tombol Tambah Baru (link ke halaman 'create') -->
         <div class="mb-6">
             <a href="{{ route('admin.users.create') }}"
                 class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md">
@@ -15,7 +12,6 @@
             </a>
         </div>
 
-        <!-- Notifikasi (Pesan Sukses/Error dari Controller) -->
         @if (session('success'))
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg mb-6" role="alert">
                 {{ session('success') }}
@@ -27,7 +23,6 @@
             </div>
         @endif
 
-        <!-- Tabel User -->
         <div class="bg-white shadow-md rounded-lg overflow-x-auto">
             <table class="min-w-full leading-normal">
                 <thead>
@@ -55,7 +50,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Loop data $users yang dikirim dari Controller --}}
                     @forelse ($users as $user)
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -76,7 +70,6 @@
                             </td>
                             <td
                                 class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right whitespace-no-wrap">
-                                <!-- Tombol Edit (link ke halaman 'edit') -->
                                 <a href="{{ route('admin.users.edit', $user) }}"
                                     class="text-indigo-600 hover:text-indigo-900 font-semibold mr-4">
                                     Edit
@@ -84,11 +77,9 @@
 
 
                                 @if (Auth::id() === $user->id)
-                                    {{-- Jika ya, nonaktifkan tombol hapus --}}
                                     <span class="text-gray-400 font-semibold cursor-not-allowed"
                                         title="Anda tidak dapat menghapus akun sendiri">Hapus</span>
                                 @else
-                                    {{-- Jika bukan, tampilkan tombol hapus --}}
                                     <form action="{{ route('admin.users.destroy', $user) }}" method="POST"
                                         class="inline-block"
                                         onsubmit="return confirm('Anda yakin ingin menghapus user ini?');">
@@ -102,7 +93,6 @@
                             </td>
                         </tr>
                     @empty
-                        {{-- Tampilan jika tabel user kosong --}}
                         <tr>
                             <td colspan="5" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
                                 <p class="text-gray-500">Belum ada user.</p>
@@ -112,7 +102,6 @@
                 </tbody>
             </table>
 
-            <!-- Paginasi (Link ke halaman 1, 2, 3... jika user banyak) -->
             <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                 {{ $users->links() }}
             </div>

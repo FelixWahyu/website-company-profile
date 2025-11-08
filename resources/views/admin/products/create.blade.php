@@ -1,14 +1,12 @@
 <x-admin-layout>
-    <x-slot name="title">
-        Tambah Produk Baru
+    <x-slot name="header">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Tambah Produk Baru</h2>
     </x-slot>
 
-    <div class="container mx-auto px-6 py-8">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Tambah Produk Baru</h2>
+    <div class="container mx-auto px-6 py-2">
 
-        <div class="bg-white shadow-md rounded-lg p-8">
+        <div class="bg-white rounded-lg p-2">
             <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
-                {{-- Form butuh 'enctype' untuk file upload --}}
 
                 @include('admin.products._form')
 
@@ -17,7 +15,8 @@
                         class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md">
                         Simpan Produk
                     </button>
-                    <a href="{{ route('admin.products.index') }}" class="text-gray-600 hover:text-gray-800 font-medium">
+                    <a href="{{ route('admin.products.index') }}"
+                        class="text-gray-800 bg-gray-100 border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-200 font-medium">
                         Batal
                     </a>
                 </div>
