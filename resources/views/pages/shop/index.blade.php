@@ -1,7 +1,7 @@
 <x-frontend-layout>
-    <x-slot name="title">
+    {{-- <x-slot name="header">
         Toko Akur Plastik & Beras - {{ $settings['site_name'] ?? config('app.name') }}
-    </x-slot>
+    </x-slot> --}}
 
     {{-- <section class="bg-blue-600 text-white">
         <div class="container mx-auto px-6 py-20 text-center">
@@ -36,10 +36,6 @@
                         adalah menyediakan semua kebutuhan Anda di satu tempat dengan harga yang jujur dan pelayanan
                         yang ramah.
                     </p>
-                    {{-- <a href="#lokasi"
-                        class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                        Kunjungi Toko Kami
-                    </a> --}}
                 </div>
                 <div class="rounded-lg shadow-xl overflow-hidden">
 
@@ -183,7 +179,7 @@
                         <label for="category" class="block text-sm font-medium text-gray-700">Filter Kategori</label>
                         <select id="category" name="category"
                             class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-                            onchange="this.form.submit()"> {{-- Otomatis submit saat ganti filter --}}
+                            onchange="this.form.submit()">
                             <option value="">Semua Kategori</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->slug }}" @selected(request('category') == $category->slug)>

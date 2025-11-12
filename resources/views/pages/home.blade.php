@@ -1,10 +1,9 @@
 <x-frontend-layout>
-    <x-slot name="title">
+    {{-- <x-slot name="title">
         Selamat Datang - {{ $settings['site_name'] ?? config('app.name') }}
-    </x-slot>
+    </x-slot> --}}
 
     <section x-data="{ current: 0, slides: ['/images/banner/supermarket.jpg', '/images/banner/wedding.jpg'] }" x-init="setInterval(() => current = (current + 1) % slides.length, 5000)" class="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
-        <!-- Background Images -->
         <template x-for="(slide, index) in slides" :key="index">
             <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-[1200ms] ease-in-out"
                 :style="`background-image: url('${slide}')`" x-show="current === index" x-transition:enter="opacity-0"
@@ -12,10 +11,8 @@
             </div>
         </template>
 
-        <!-- Overlay Gelap -->
         <div class="absolute inset-0 bg-black/40"></div>
 
-        <!-- Hero Content -->
         <div
             class="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-6 sm:px-10">
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
@@ -28,7 +25,6 @@
                 atap.</p>
         </div>
 
-        <!-- Dots (indikator slide) -->
         <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-10">
             <template x-for="(slide, index) in slides" :key="index">
                 <button class="w-3 h-3 rounded-full transition-all"
@@ -102,7 +98,6 @@
 
     <div x-data="{ showModal: false }" @keydown.escape.window="showModal = false">
 
-        <!-- [A] Section Ulasan -->
         @if (isset($testimonials) && $testimonials->isNotEmpty())
             <section class="py-16 bg-white">
                 <div class="container mx-auto px-6">
@@ -187,7 +182,7 @@
                                                         src="{{ $reply->user->avatar ? asset('storage/' . $reply->user->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode($reply->user->name) . '&background=indigo&color=fff' }}"
                                                         alt="{{ $reply->user->name }}">
                                                     <p class="font-semibold text-sm text-indigo-700">
-                                                        {{ $reply->user->name }} (Admin)</p>
+                                                        {{ $reply->user->name }}</p>
                                                 </div>
                                                 <p class="text-sm text-gray-600">{{ $reply->reply_comment }}</p>
                                             </div>
